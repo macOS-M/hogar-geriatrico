@@ -115,13 +115,4 @@ No se contempla inicialmente una API independiente ni una base de datos. Su nece
 - Responsable de actualizar el contenido del sitio.
 - Dominio y alojamiento.
 
-## Referencias de investigación
 
-Sitios consultados como referencia de estructura y contenido; no implican afiliación ni certificación de sus servicios:
-
-- [Hogar Bethel](https://www.hogardeancianosbethel.com/): información práctica sobre cuidados, habitaciones y visitas.
-- [Residencias Valentina](https://www.residenciasvalentina.com/): instalaciones, fotografías y servicios.
-- [Alfa y Omega](https://www.alfayomega-cevida.com/): presentación de modalidades de cuidado.
-- [Sanitas Mayores](https://www.sanitas.es/mayores): organización de servicios y contacto con familias.
-- [Documentación de Next.js](https://nextjs.org/docs): referencia técnica para la arquitectura propuesta.
-- [WCAG — W3C](https://www.w3.org/WAI/standards-guidelines/wcag/): referencia de accesibilidad web.

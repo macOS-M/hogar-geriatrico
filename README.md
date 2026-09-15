@@ -4,9 +4,33 @@ Sitio web informativo para Hogar Geriátrico La Sabana, una organización dedica
 
 ## Estado del proyecto
 
-Etapa inicial de definición de contenido y requisitos. Este repositorio todavía no contiene una aplicación ni instrucciones de instalación o ejecución.
+Etapa inicial de implementación. El repositorio contiene una aplicación funcional construida con Next.js, React y TypeScript, con una página de inicio que presenta los servicios, las sedes y la información de contacto.
 
 La información operativa de este documento fue proporcionada por el hogar y deberá revisarse antes de publicarla. Las funciones y tecnologías descritas son propuestas, no implementaciones existentes.
+
+## Desarrollo local
+
+Requisitos:
+
+- Node.js 20.9 o una versión posterior compatible con Next.js 16.
+- npm.
+
+Instala las dependencias y ejecuta el servidor de desarrollo:
+
+```bash
+npm install
+npm run dev
+```
+
+Abre [http://localhost:3000](http://localhost:3000) en el navegador.
+
+Antes de integrar cambios, ejecuta la validación completa:
+
+```bash
+npm run check
+```
+
+Este comando ejecuta ESLint, comprueba los tipos, crea la compilación de producción y valida la página principal contra un servidor local. Los comandos también pueden ejecutarse por separado con `npm run lint`, `npm run typecheck`, `npm run build` y `npm test`.
 
 ## Objetivo
 

@@ -1,3 +1,5 @@
+import ParallaxHero from "./components/ParallaxHero";
+
 const sedes = [
   {
     nombre: "La Sabana #1 · Nunciatura",
@@ -26,60 +28,102 @@ const servicios = [
   "Ambulancia privada para emergencias",
 ];
 
+const cuidados = [
+  {
+    titulo: "Cuidado cercano, cada día",
+    descripcion: "Cuidado especializado de larga estancia y personal capacitado las 24 horas. Acompañamiento para las necesidades de cada residente, con control y seguimiento médico.",
+    imagen: "https://picsum.photos/seed/sabana-cuidado/900/700",
+    icono: "heart",
+  },
+  {
+    titulo: "Bienestar en cada etapa",
+    descripcion: "Terapia física, ocupacional y nutrición forman parte de nuestros servicios. Cinco tiempos de comida y apoyo en las tareas cotidianas para vivir con tranquilidad.",
+    imagen: "https://picsum.photos/seed/sabana-bienestar/900/700",
+    icono: "leaf",
+  },
+  {
+    titulo: "Un espacio para compartir",
+    descripcion: "Actividades recreativas, compañía y espacios para disfrutar del día a día. Tres sedes para que su familia encuentre un hogar cercano.",
+    imagen: "https://picsum.photos/seed/sabana-compartir/900/700",
+    icono: "home",
+  },
+];
+
 export default function Home() {
   return (
-    <main className="page-shell">
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">Hogar Geriátrico La Sabana</p>
-          <h1>Cuidado digno, cercano y seguro para personas adultas mayores.</h1>
-          <p className="lead">
-            Sitio informativo para familias que buscan conocer el hogar, sus servicios,
-            sedes y condiciones de admisión.
+    <main>
+      <ParallaxHero />
+
+      <div className="page-shell">
+        <section id="servicios" className="section section-intro">
+          <header className="body-intro">
+          <p className="section-kicker">Atención integral</p>
+          <h2>Todo lo necesario para vivir con tranquilidad.</h2>
+          <p className="section-lead">
+            Un equipo cercano acompaña cada etapa del día, respetando la
+            historia, autonomía y necesidades de cada residente.
           </p>
-          <div className="actions">
-            <a href="#sedes" className="primary">Ver sedes</a>
-            <a href="#contacto" className="secondary">Contactar</a>
+          </header>
+          <div className="feature-rows">
+            {cuidados.map((cuidado) => (
+              <article className="feature-row" key={cuidado.titulo}>
+                {/* Decorative placeholder: replace with an authorized photograph. */}
+                <div className="feature-photo" style={{ backgroundImage: `url("${cuidado.imagen}")` }} aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    {cuidado.icono === "heart" ? (
+                      <path d="M32 53 10 32C-4 17 17 3 32 20 47 3 68 17 54 32Z" />
+                    ) : cuidado.icono === "leaf" ? (
+                      <><path d="M52 10C18 5 6 23 17 43S58 45 52 10Z" /><path d="M12 55 42 24M25 41V27M25 41H39" /></>
+                    ) : (
+                      <><path d="m7 29 25-21 25 21M14 25v30h36V25" /><path d="M26 55V37h12v18" /></>
+                    )}
+                  </svg>
+                </div>
+                <div className="feature-copy">
+                  <h3>{cuidado.titulo}</h3>
+                  <p>{cuidado.descripcion}</p>
+                </div>
+              </article>
+            ))}
           </div>
-        </div>
-      </section>
+          <ul className="service-list">
+            {servicios.map((servicio, index) => (
+              <li key={servicio}>
+                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                {servicio}
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <section className="section">
-        <h2>Servicios</h2>
-        <ul className="service-list">
-          {servicios.map((servicio) => (
-            <li key={servicio}>{servicio}</li>
-          ))}
-        </ul>
-      </section>
+        <section id="sedes" className="section">
+          <p className="section-kicker">Tres ubicaciones</p>
+          <h2>Un hogar cerca de su familia.</h2>
+          <div className="cards">
+            {sedes.map((sede, index) => (
+              <article key={sede.nombre} className="card">
+                <span className="card-number" aria-hidden="true">0{index + 1}</span>
+                <h3>{sede.nombre}</h3>
+                <p>{sede.descripcion}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <section id="sedes" className="section">
-        <h2>Sedes</h2>
-        <div className="cards">
-          {sedes.map((sede) => (
-            <article key={sede.nombre} className="card">
-              <h3>{sede.nombre}</h3>
-              <p>{sede.descripcion}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="contacto" className="section">
-        <h2>Contacto</h2>
-        <div className="contact-box">
-          <p>
-            <strong>Teléfono:</strong> 6005-3095
-          </p>
-          <p>
-            <strong>Horario:</strong> lunes a viernes, 8:00 a. m. a 5:00 p. m.
-          </p>
-          <p>
-            Este sitio se encuentra en etapa inicial y requiere validación de información
-            antes de publicación.
-          </p>
-        </div>
-      </section>
+        <section id="contacto" className="section contact-section">
+          <div>
+            <p className="section-kicker">Estamos para escucharle</p>
+            <h2>Conversemos sobre el cuidado que su familia necesita.</h2>
+          </div>
+          <div className="contact-box">
+            <a href="tel:+50660053095">6005-3095</a>
+            <p>Lunes a viernes, de 8:00 a. m. a 5:00 p. m.</p>
+            <small>
+              La información del sitio está pendiente de validación antes de su publicación.
+            </small>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowUp, ArrowUpRight, HeartPulse, House, Utensils, UsersRound } from "lucide-react";
 import ParallaxHero from "./components/ParallaxHero";
 import logomark from "../public/logo.png";
 
@@ -23,21 +24,25 @@ const sedes = [
 const cuidados = [
   {
     titulo: "Salud y acompañamiento",
+    icon: HeartPulse,
     descripcion: "Apoyo profesional para las necesidades de cada persona.",
     servicios: ["Control y seguimiento médico", "Medicina general y enfermería", "Terapia física y ocupacional"],
   },
   {
     titulo: "Alimentación y bienestar",
+    icon: Utensils,
     descripcion: "La tranquilidad también está en los pequeños cuidados.",
     servicios: ["Cinco tiempos de comida", "Menú balanceado y servicio de nutrición", "Cuidado de la imagen personal"],
   },
   {
     titulo: "Comodidad en el día a día",
+    icon: House,
     descripcion: "Un entorno pensado para vivir con mayor comodidad.",
     servicios: ["Habitaciones privadas y compartidas", "Baños adaptados", "Lavado y planchado de ropa"],
   },
   {
     titulo: "Compañía y vida cotidiana",
+    icon: UsersRound,
     descripcion: "Espacio para compartir, conversar y seguir conectado.",
     servicios: ["Actividades recreativas", "Wifi para residentes", "Cuidado especializado de larga estancia"],
   },
@@ -73,7 +78,7 @@ export default function Home() {
             <p className="section-kicker">La vida en La Sabana</p>
             <h2 id="welcome-title">Sentirse en casa.<br />Sentirse acompañado.</h2>
             <p className="section-lead">Elegir un hogar es una decisión de familia. Aquí, el cuidado parte de algo esencial: conocer a cada persona y respetar su historia, su autonomía y su forma de vivir.</p>
-            <a className="text-link" href="#servicios">Conozca nuestros cuidados <span aria-hidden="true">↗</span></a>
+            <a className="text-link" href="#servicios">Conozca nuestros cuidados <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
           </div>
           <aside className="care-note" aria-label="Cuidado residencial las 24 horas">
             <span className="care-note-label">A su lado, cada día</span>
@@ -92,7 +97,10 @@ export default function Home() {
           <div className="care-grid">
             {cuidados.map((cuidado) => (
               <article className="care-group" key={cuidado.titulo}>
-                <h3>{cuidado.titulo}</h3>
+                <div className="care-group-heading">
+                  <span className="care-group-icon" aria-hidden="true"><cuidado.icon size={22} strokeWidth={1.7} /></span>
+                  <h3>{cuidado.titulo}</h3>
+                </div>
                 <p>{cuidado.descripcion}</p>
                 <ul>
                   {cuidado.servicios.map((servicio) => <li key={servicio}>{servicio}</li>)}
@@ -117,7 +125,7 @@ export default function Home() {
                   <h3>{sede.nombre}</h3>
                 </div>
                 <p>{sede.descripcion}</p>
-                <a className="location-link" href="#contacto" aria-label={`Consultar por la sede ${sede.nombre}`}><span>Consultar sede</span><span aria-hidden="true">↗</span></a>
+                <a className="location-link" href="#contacto" aria-label={`Consultar por la sede ${sede.nombre}`}><span>Consultar sede</span><ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
               </article>
             ))}
           </div>
@@ -143,7 +151,7 @@ export default function Home() {
           <p className="section-kicker">Estamos para escucharle</p>
           <h2 id="contact-title">El primer paso es conversar.</h2>
           <p className="section-lead">Cuéntenos qué necesita su familia. Le orientamos sobre nuestros cuidados y cómo coordinar una visita.</p>
-          <a className="contact-phone" href="tel:+50660053095">Llamar al 6005-3095 <span aria-hidden="true">↗</span></a>
+          <a className="contact-phone" href="tel:+50660053095">Llamar al 6005-3095 <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
           <p className="contact-hours">Horario de consultas: lunes a viernes,<br className="mobile-break" /> de 8:00 a. m. a 5:00 p. m.</p>
         </section>
 
@@ -153,7 +161,7 @@ export default function Home() {
             <span>Hogar Geriátrico<br /><strong>La Sabana</strong></span>
           </a>
           <p>Bienestar, compañía y confianza.</p>
-          <a className="text-link" href="#inicio">Volver al inicio <span aria-hidden="true">↑</span></a>
+          <a className="text-link" href="#inicio">Volver al inicio <ArrowUp className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
           <small>La información del sitio está pendiente de validación antes de su publicación.</small>
         </footer>
       </div>

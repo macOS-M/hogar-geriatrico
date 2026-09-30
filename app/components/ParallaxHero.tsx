@@ -13,6 +13,7 @@ export default function ParallaxHero() {
         <nav aria-label="Navegación principal">
           <a href="#servicios">Servicios</a>
           <a href="#sedes">Sedes</a>
+          <a href="#actividades">Actividades</a>
           <a href="#contacto">Contacto</a>
         </nav>
       </header>

@@ -1,0 +1,22 @@
+.footer-brand { display: inline-flex; align-items: center; gap: 14px; width: fit-content; font-size: 0.8rem; line-height: 1.5; }
+
+.footer-brand img { height: auto; }
+
+.footer-brand strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.3rem; font-weight: 400; }
+
+.site-footer { display: grid; grid-template-columns: 1fr auto auto; align-items: center; column-gap: 48px; row-gap: 30px; padding: 44px 0 24px; }
+
+.site-footer > p { color: var(--body-muted); font-size: 0.85rem; }
+
+.site-footer .text-link { font-size: 0.85rem; }
+
+.site-footer small { border-top: 1px solid var(--body-line); padding-top: 22px; grid-column: 1 / -1; color: var(--body-muted); font-size: 0.75rem; }
+
+@media (max-width: 900px) {
+  .site-footer { column-gap: 24px; }
+}
+
+@media (max-width: 760px) {
+  .site-footer { grid-template-columns: 1fr; gap: 16px; padding-top: 36px; }
+  .site-footer > p { margin: 0; }
+}

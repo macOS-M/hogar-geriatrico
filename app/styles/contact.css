@@ -1,0 +1,29 @@
+.contact-phone:hover .link-arrow { transform: translate(2px, -2px); }
+
+.page-shell .contact-section { background: var(--body-tint); border-radius: 16px; text-align: center; padding: 64px 32px; }
+
+.contact-section .section-lead { margin: 24px auto 30px; max-width: 570px; }
+
+.contact-phone { display: inline-flex; align-items: center; gap: 28px; border: 1px solid var(--brand-primary); background: var(--brand-primary); border-radius: 999px; color: var(--cream); font-size: 1rem; font-weight: 600; min-height: 56px; padding: 14px 28px; transition: background 180ms ease; }
+
+.contact-phone:hover { background: var(--brand-primary-hover); }
+
+.contact-phone:active { transform: translateY(1px); }
+
+.contact-hours { color: var(--body-muted); font-size: 0.85rem; line-height: 1.8; margin: 20px 0 0; }
+
+.mobile-break { display: none; }
+
+@media (max-width: 760px) {
+  .page-shell .contact-section { padding: 44px 24px; }
+  .contact-phone { padding: 14px 22px; gap: 16px; }
+  .mobile-break { display: initial; }
+}
+
+@media (max-width: 360px) {
+  .contact-phone { font-size: 0.85rem; gap: 10px; padding-inline: 14px; white-space: nowrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-phone { transition: none; }
+}

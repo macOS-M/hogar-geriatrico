@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, X, Expand } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import usePhotoSwipe from "./usePhotoSwipe";
 
 const activities = [
   { src: "/Actividades/actividad2.jpg", alt: "Encuentro de residentes y acompañantes en el jardín" },
@@ -22,6 +23,7 @@ export default function ActivitiesSection() {
   const [open, setOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const photo = activities[selected];
+  const swipeHandlers = usePhotoSwipe(nextPhoto);
 
   useEffect(() => {
     if (!open) return;
@@ -51,7 +53,7 @@ export default function ActivitiesSection() {
       <div className="activities-mosaic">
         {activities.map((activity, index) => (
           <button key={activity.src} className={"activity-photo activity-tile-" + index} type="button" onClick={() => { setSelected(index); setOpen(true); }} aria-label={"Ampliar: " + activity.alt}>
-            <Image src={activity.src} alt={activity.alt} fill sizes={index === 0 || index === 6 || index === 9 ? "(max-width: 600px) 90vw, (max-width: 900px) 45vw, 560px" : "(max-width: 600px) 90vw, (max-width: 900px) 45vw, 280px"} />
+            <Image src={activity.src} alt={activity.alt} fill sizes={index === 0 || index === 6 || index === 9 ? "(max-width: 760px) 75vw, (max-width: 900px) 45vw, 560px" : "(max-width: 760px) 75vw, (max-width: 900px) 45vw, 280px"} />
             <span className="activity-expand" aria-hidden="true"><Expand size={18} /></span>
           </button>
         ))}
@@ -62,7 +64,7 @@ export default function ActivitiesSection() {
       }}>
         <div className="activity-lightbox-content">
           <button type="button" className="activity-close" aria-label="Cerrar fotografía" onClick={() => setOpen(false)} autoFocus><X size={24} /></button>
-          <div className="activity-full-photo"><Image src={photo.src} alt={photo.alt} fill sizes="90vw" /></div>
+          <div className="activity-full-photo" {...swipeHandlers}><Image src={photo.src} alt={photo.alt} fill sizes="90vw" draggable={false} /></div>
           <div className="activity-lightbox-footer">
             <p aria-live="polite">{photo.alt}<span>{selected + 1} / {activities.length}</span></p>
             <button type="button" aria-label="Fotografía anterior" onClick={() => nextPhoto(-1)}><ArrowLeft size={22} /></button>

@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { HeartHandshake, Expand, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Expand, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import usePhotoSwipe from "./usePhotoSwipe";
 
 const trainingPhotos = [
   { src: "/capacitaciones/capacitacion1.jpg", alt: "Demostración de primeros auxilios durante una capacitación del equipo" },
@@ -14,6 +15,11 @@ export default function TrainingSection() {
   const [selected, setSelected] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const isOpen = selected !== null;
+  const swipeHandlers = usePhotoSwipe(nextPhoto);
+
+  function nextPhoto(direction: number) {
+    setSelected((current) => current === null ? null : (current + direction + trainingPhotos.length) % trainingPhotos.length);
+  }
 
   useEffect(() => {
     if (!isOpen) return;
@@ -46,11 +52,18 @@ export default function TrainingSection() {
           </figure>
         ))}
       </div>
-      <dialog className="training-lightbox" ref={dialog} aria-label="Fotografía de capacitación" onClose={() => setSelected(null)} onClick={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
+      <dialog className="training-lightbox" ref={dialog} aria-label="Fotografía de capacitación" onClose={() => setSelected(null)} onClick={(event) => { if (event.target === event.currentTarget) setSelected(null); }} onKeyDown={(event) => {
+        if (event.key === "ArrowLeft") { event.preventDefault(); nextPhoto(-1); }
+        if (event.key === "ArrowRight") { event.preventDefault(); nextPhoto(1); }
+      }}>
         <div className="training-lightbox-content">
           <button type="button" aria-label="Cerrar fotografía" onClick={() => setSelected(null)} autoFocus><X size={24} /></button>
-          <div className="training-full-photo">{selected !== null && <Image src={trainingPhotos[selected].src} alt={trainingPhotos[selected].alt} fill sizes="90vw" />}</div>
-          <p>{selected !== null && trainingPhotos[selected].alt}</p>
+          <div className="training-full-photo" {...swipeHandlers}>{selected !== null && <Image src={trainingPhotos[selected].src} alt={trainingPhotos[selected].alt} fill sizes="90vw" draggable={false} />}</div>
+          <div className="activity-lightbox-footer training-lightbox-footer">
+            <p aria-live="polite">{selected !== null && <>{trainingPhotos[selected].alt}<span>{selected + 1} / {trainingPhotos.length}</span></>}</p>
+            <button type="button" aria-label="Fotografía anterior" onClick={() => nextPhoto(-1)}><ArrowLeft size={22} /></button>
+            <button type="button" aria-label="Fotografía siguiente" onClick={() => nextPhoto(1)}><ArrowRight size={22} /></button>
+          </div>
         </div>
       </dialog>
     </section>

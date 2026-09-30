@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUp, ArrowUpRight, HeartPulse, House, Utensils, UsersRound } from "lucide-react";
+import { ArrowUp, ArrowUpRight, Clock3, HeartPulse, House, MessageCircle, Phone, Utensils, UsersRound } from "lucide-react";
 import ParallaxHero from "./components/ParallaxHero";
 import SedeSelector from "./components/SedeSelector";
 import ActivitiesSection from "./components/ActivitiesSection";
@@ -205,11 +205,18 @@ export default function Home() {
         </section>
 
         <section id="contacto" className="section contact-section" aria-labelledby="contact-title">
-          <p className="section-kicker">Estamos para escucharle</p>
-          <h2 className="section-title" id="contact-title">El primer paso es <span>conversar.</span></h2>
-          <p className="section-lead">Cuéntenos qué necesita su familia. Le orientamos sobre nuestros cuidados y cómo coordinar una visita.</p>
-          <a className="contact-phone" href="tel:+50660053095">Llamar al 6005-3095 <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
-          <p className="contact-hours">Horario de consultas: lunes a viernes,<br className="mobile-break" /> de 8:00 a. m. a 5:00 p. m.</p>
+          <div className="contact-copy">
+            <p className="section-kicker">Estamos para escucharle</p>
+            <h2 className="section-title" id="contact-title">El primer paso es <span>conversar.</span></h2>
+            <p className="section-lead">Cuéntenos qué necesita su familia. Le orientamos sobre nuestros cuidados y cómo coordinar una visita.</p>
+          </div>
+          <div className="contact-card">
+            <p className="contact-card-label">Conversemos sobre sus necesidades</p>
+            <a className="contact-number" href="https://wa.me/50660053095" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp al +506 6005-3095">+506 6005-3095</a>
+            <a className="contact-phone" href="tel:+50660053095"><Phone size={18} aria-hidden="true" /><span>Llamar ahora</span><ArrowUpRight className="link-arrow" aria-hidden="true" /></a>
+            <div className="contact-hours"><Clock3 size={18} strokeWidth={1.7} aria-hidden="true" /><div><span>Horario de consultas</span><p>Lunes a viernes · 8:00 a. m. a 5:00 p. m.</p></div></div>
+            <a className="text-link contact-sedes" href="#sedes">Conocer nuestras sedes <ArrowUpRight className="link-arrow" aria-hidden="true" /></a>
+          </div>
         </section>
 
         <footer className="site-footer">
@@ -222,6 +229,10 @@ export default function Home() {
           <small>La información del sitio está pendiente de validación antes de su publicación.</small>
         </footer>
       </div>
+      <a className="whatsapp-float" href="https://wa.me/50660053095" target="_blank" rel="noopener noreferrer" aria-label="Contactar a La Sabana por WhatsApp">
+        <span className="whatsapp-symbol" aria-hidden="true"><MessageCircle size={30} strokeWidth={1.8} /><Phone size={15} strokeWidth={2} /></span>
+        <span className="whatsapp-float-label">WhatsApp</span>
+      </a>
     </main>
   );
 }

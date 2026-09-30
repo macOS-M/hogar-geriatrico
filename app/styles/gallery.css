@@ -4,6 +4,12 @@
 
 .sede-photo { object-fit: cover; }
 
+.sede-expand-photo { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: transparent; cursor: zoom-in; }
+.sede-expand-photo:focus-visible { outline: 3px solid var(--body-accent); outline-offset: -5px; }
+.sede-expand-icon { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--cream); color: var(--brand-primary); }
+.sede-swipe-photo { touch-action: pan-y pinch-zoom; }
+.sede-main-photo figcaption { pointer-events: none; }
+
 .sede-photo-placeholder { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--brand-primary); background: radial-gradient(ellipse at top left, var(--body-tint), var(--gallery-placeholder)); }
 
 .sede-photo-placeholder > span { font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.3rem, 2vw, 1.8rem); }
@@ -34,6 +40,7 @@
   .sede-gallery { grid-template-columns: minmax(0, 1fr); gap: 10px; margin-bottom: 4px; }
   .sede-main-photo { aspect-ratio: 4 / 3; }
   .sede-main-photo figcaption { padding: 12px; font-size: 0.7rem; }
-  .sede-thumbnails { flex-direction: row; overflow-x: auto; overflow-y: hidden; }
-  .sede-thumbnail { flex: 1 0 72px; height: 76px; min-height: 76px; }
+  .sede-main-photo figcaption > span:last-child { flex-shrink: 0; white-space: nowrap; }
+  .sede-thumbnails { flex-direction: row; overflow-x: auto; overflow-y: hidden; min-width: 0; scrollbar-width: thin; scroll-snap-type: x proximity; padding-bottom: 8px; }
+  .sede-thumbnail { flex: 0 0 72px; height: 64px; min-height: 64px; scroll-snap-align: start; }
 }

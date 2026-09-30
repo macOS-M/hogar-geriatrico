@@ -1,25 +1,15 @@
 import Image from "next/image";
 import logo from "../../public/sabana.png";
-import logomark from "../../public/logo.png";
+import SiteHeader from "./SiteHeader";
+import HeroBackground from "./HeroBackground";
 
 export default function ParallaxHero() {
   return (
     <>
-      <header className="site-header">
-        <a className="brand" href="#inicio" aria-label="Hogar Geriátrico La Sabana, inicio">
-          <Image className="brand-mark" src={logomark} alt="" sizes="64px" />
-          <span>Hogar Geriátrico La Sabana</span>
-        </a>
-        <nav aria-label="Navegación principal">
-          <a href="#servicios">Servicios</a>
-          <a href="#sedes">Sedes</a>
-          <a href="#actividades">Actividades</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section id="inicio" className="hero" aria-labelledby="hero-title">
-        <div className="hero-background" aria-hidden="true" />
+        <HeroBackground />
         <div className="hero-overlay" aria-hidden="true" />
 
         <div className="hero-content">

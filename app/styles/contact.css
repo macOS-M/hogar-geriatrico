@@ -1,29 +1,34 @@
-.contact-phone:hover .link-arrow { transform: translate(2px, -2px); }
-
-.page-shell .contact-section { background: var(--body-tint); border-radius: 16px; text-align: center; padding: 64px 32px; }
-
-.contact-section .section-lead { margin: 24px auto 30px; max-width: 570px; }
-
-.contact-phone { display: inline-flex; align-items: center; gap: 28px; border: 1px solid var(--brand-primary); background: var(--brand-primary); border-radius: 999px; color: var(--cream); font-size: 1rem; font-weight: 600; min-height: 56px; padding: 14px 28px; transition: background 180ms ease; }
-
+.page-shell .contact-section { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr); gap: clamp(48px, 8vw, 112px); align-items: center; padding: 80px 64px; border: 1px solid var(--body-line); border-radius: 24px 24px 80px 24px; background: var(--body-tint); }
+.contact-copy { max-width: 560px; }
+.contact-copy .section-kicker { margin-bottom: 18px; }
+.contact-copy .section-lead { margin-top: 20px; max-width: 550px; }
+.contact-card { min-width: 0; padding: 8px 0 8px 40px; border-left: 1px solid rgba(8, 125, 130, 0.3); }
+.contact-card-label { color: var(--body-muted); font-size: 0.85rem; margin: 0 0 8px; }
+.contact-number { display: inline-block; color: var(--brand-primary); font-size: clamp(1.75rem, 3.5vw, 3rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.04em; }
+.contact-phone { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 52px; width: min(100%, 300px); margin: 20px 0 0; padding: 14px 24px; border-radius: 999px; background: var(--brand-primary); color: white; font-size: 0.95rem; font-weight: 600; transition: background 180ms ease; }
+.contact-phone > span { flex: 1; }
 .contact-phone:hover { background: var(--brand-primary-hover); }
-
-.contact-phone:active { transform: translateY(1px); }
-
-.contact-hours { color: var(--body-muted); font-size: 0.85rem; line-height: 1.8; margin: 20px 0 0; }
-
-.mobile-break { display: none; }
-
+.contact-phone:hover .link-arrow { transform: translate(2px, -2px); }
+.contact-hours { display: flex; align-items: flex-start; gap: 10px; margin: 24px 0 0; padding-top: 20px; border-top: 1px solid var(--body-line); font-size: 0.85rem; }
+.contact-hours > svg { flex-shrink: 0; color: var(--brand-primary); margin-top: 2px; }
+.contact-hours span { font-weight: 600; }
+.contact-hours p { color: var(--body-muted); margin: 4px 0 0; line-height: 1.7; }
+.contact-sedes { color: var(--brand-primary); gap: 10px; margin-top: 14px; font-size: 0.85rem; }
+.whatsapp-float { position: fixed; right: max(24px, env(safe-area-inset-right)); bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 19; display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 12px 20px; border-radius: 999px; background: #16833f; color: white; font-size: 0.9rem; font-weight: 600; box-shadow: 0 4px 18px rgba(0,0,0,0.2); }
+.whatsapp-float:hover { background: #116b33; }
+.whatsapp-float:focus-visible { outline: 3px solid var(--brand-focus); outline-offset: 4px; }
+.whatsapp-symbol { position: relative; display: grid; place-items: center; width: 30px; height: 30px; }
+.whatsapp-symbol > svg:last-child { position: absolute; top: 7px; left: 8px; }
+.contact-number:hover { text-decoration: underline; text-underline-offset: 5px; }
+.page-shell .site-footer { padding-bottom: 96px; }
 @media (max-width: 760px) {
-  .page-shell .contact-section { padding: 44px 24px; }
-  .contact-phone { padding: 14px 22px; gap: 16px; }
-  .mobile-break { display: initial; }
+  .whatsapp-float { right: max(16px, env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom)); width: 56px; padding: 0; justify-content: center; }
+  .whatsapp-float-label { display: none; }
+  .page-shell .contact-section { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 40px 20px 28px; border-radius: 20px 20px 56px 20px; }
+  .contact-copy .section-kicker { font-size: 0.65rem; margin-bottom: 16px; }
+  .contact-copy .section-lead { margin-top: 16px; }
+  .contact-card { padding: 24px 0 0; border-top: 1px solid rgba(8, 125, 130, 0.24); border-left: 0; }
+  .contact-number { font-size: clamp(1.5rem, 7.5vw, 2.5rem); }
+  .contact-hours { margin-top: 20px; padding-top: 18px; font-size: 0.8rem; }
 }
-
-@media (max-width: 360px) {
-  .contact-phone { font-size: 0.85rem; gap: 10px; padding-inline: 14px; white-space: nowrap; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-phone { transition: none; }
-}
+@media (prefers-reduced-motion: reduce) { .contact-phone { transition: none; } }

@@ -19,17 +19,19 @@
 .training-lightbox-content { position: relative; display: flex; flex-direction: column; height: 100%; max-width: 1200px; margin: auto; padding-top: 52px; }
 .training-lightbox-content > button { position: absolute; top: 0; right: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); background: transparent; color: white; cursor: pointer; }
 .training-lightbox-content > button:focus-visible { outline: 3px solid var(--brand-focus); outline-offset: 3px; }
-.training-full-photo { position: relative; flex: 1; min-height: 0; }
+.training-full-photo { position: relative; flex: 1; min-height: 0; touch-action: pan-y pinch-zoom; }
+.training-lightbox-footer button { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; background: transparent; color: white; cursor: pointer; }
+.training-lightbox-footer button:focus-visible { outline: 3px solid var(--brand-focus); outline-offset: 3px; }
 .training-full-photo img { object-fit: contain; }
 .training-lightbox-content > p { text-align: center; font-size: 0.9rem; margin: 20px 0 0; }
 @media (max-width: 760px) {
   .training-copy { display: block; }
   .training-copy .section-lead { margin-top: 24px; }
-  .training-gallery { gap: 12px; }
+  .training-gallery { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 12px; }
+  .training-gallery .training-moment { grid-column: auto; grid-row: auto; scroll-snap-align: start; }
+  .training-gallery .training-photo { aspect-ratio: 4 / 3; flex: none; }
+  .training-photo img { object-fit: cover; }
 }
 @media (max-width: 600px) {
-  .training-gallery { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .training-gallery .training-moment { grid-column: auto; grid-row: auto; }
-  .training-moment-1 .training-photo { aspect-ratio: 3 / 4; flex: auto; }
   .training-lightbox { padding: 16px; }
 }

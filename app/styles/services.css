@@ -21,7 +21,16 @@
   .services-heading .section-lead { max-width: 580px; }
 }
 @media (max-width: 580px) {
-  .care-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .care-group-heading { flex-direction: row; align-items: center; gap: 16px; }
-  .care-group-icon { flex-shrink: 0; }
+  .services-section { gap: 24px; }
+  .services-heading .section-lead { margin-top: 16px; }
+  .services-action { margin-top: 14px; }
+  .care-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+  .care-group { padding-top: 16px; }
+  .care-group-heading { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .care-group-icon { flex-shrink: 0; width: 36px; height: 36px; }
+  .care-group h3 { font-size: 1.1rem; line-height: 1.3; }
+  .care-group > p { display: none; }
+  .care-group ul { margin-top: 8px; }
+  .care-group li { font-size: 0.9rem; padding: 4px 0 4px 12px; line-height: 1.5; }
+  .care-group li::before { width: 4px; height: 4px; top: 12px; }
 }

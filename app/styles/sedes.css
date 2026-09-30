@@ -64,9 +64,15 @@
 @media (max-width: 760px) {
   .page-shell .locations-section { padding: 36px 0; }
   .locations-heading { flex-direction: column; gap: 10px; margin-bottom: 22px; }
-  .sede-tab { flex: 1 0 auto; font-size: 0.9rem; padding: 18px 16px; gap: 10px; min-height: 84px; }
-  .sede-panel { grid-template-columns: 1fr; padding: 26px 22px; gap: 20px; }
+  .sede-tabs { flex-direction: column; gap: 8px; overflow: visible; padding: 0; margin-bottom: 16px; }
+  .sede-tab { flex: none; width: 100%; font-size: 1rem; padding: 14px 16px; gap: 12px; min-height: 56px; border: 1px solid var(--body-line); border-radius: 12px; }
+  .sede-tab-copy { min-width: 0; white-space: normal; }
+  .sede-tab-number { display: none; }
+  .sede-tab[aria-selected="true"] { box-shadow: inset 4px 0 0 var(--brand-primary); }
+  .sede-tab[aria-selected="true"]::after { display: none; }
+  .sede-panel { grid-template-columns: minmax(0, 1fr); padding: 20px 14px; gap: 18px; border-radius: 16px; }
   .sede-details { flex-direction: column; align-items: flex-start; gap: 20px; padding-top: 20px; }
+  .location-link { width: 100%; justify-content: space-between; }
 }
 
 @media (prefers-reduced-motion: reduce) {

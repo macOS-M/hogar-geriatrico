@@ -67,6 +67,8 @@
 }
 
 .brand-mark { display: block; height: auto; padding: 3px; width: 50px; }
+.brand-name strong { font-weight: inherit; }
+.menu-toggle, .site-header .mobile-nav-call { display: none; }
 
 nav { display: flex; gap: 32px; }
 
@@ -101,25 +103,40 @@ nav a:hover, nav a:focus-visible { border-color: currentColor; }
 .scroll-cue { align-items: center; bottom: clamp(85px, 11vw, 155px); display: flex; flex-direction: column; font-size: 0.68rem; gap: 5px; left: 50%; letter-spacing: 0.16em; position: absolute; text-transform: uppercase; transform: translateX(-50%); z-index: 4; }
 
 @media (max-width: 760px) {
-  .hero { justify-content: center; min-height: 90svh; padding: 130px 22px 150px; }
-  .site-header { padding: 7px 12px; top: 10px; width: calc(100% - 20px); }
+  .hero { background: #12303a; align-items: flex-end; justify-content: center; min-height: 680px; min-height: min(780px, 100svh); padding: 260px 24px 40px; }
+  .hero-background { position: absolute; inset: -24px 0; background-position: 78% center; }
+  .hero-overlay { background: linear-gradient(180deg, rgba(18, 48, 58, 0.12) 0%, rgba(18, 48, 58, 0.2) 28%, rgba(18, 48, 58, 0.88) 60%, #12303a 100%); }
+  .hero::after { display: none; }
+  .site-header { background: #12303a; padding: 10px 20px; top: 0; left: 0; transform: none; width: 100%; min-height: 72px; border-bottom: 1px solid rgba(255,255,255,0.12); }
   .brand-mark { width: 44px; }
-  .brand > span:last-child { display: none; }
-  nav { gap: 14px; }
-  nav a { font-size: 0.66rem; }
-  .hero-emblem { width: 130px; }
+  .brand { gap: 8px; text-transform: none; letter-spacing: 0; }
+  .brand-name { display: flex; flex-direction: column; line-height: 1.3; }
+  .brand-name > span { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.06em; }
+  .brand-name strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; font-weight: 400; }
+  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; background: transparent; color: white; font: inherit; font-size: 0.8rem; cursor: pointer; }
+  .menu-toggle:focus-visible { outline: 3px solid var(--brand-focus); outline-offset: 3px; }
+  .site-header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; padding: 12px 20px 20px; background: #12303a; border-radius: 0 0 18px 18px; box-shadow: 0 16px 24px rgba(0,0,0,0.2); max-height: calc(100dvh - 72px); overflow-y: auto; }
+  .site-header.menu-open nav { display: flex; }
+  .site-header nav a { display: flex; align-items: center; min-height: 52px; font-size: 1rem; font-weight: 500; letter-spacing: 0; text-transform: none; padding: 12px 8px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .site-header nav a:hover { background: rgba(255,255,255,0.06); }
+  .site-header nav .mobile-nav-call { display: flex; justify-content: center; gap: 10px; margin-top: 16px; border: 0; border-radius: 999px; background: white; color: var(--brand-primary); font-size: 0.9rem; font-weight: 600; }
+  .hero-content { width: 100%; text-align: left; }
+  .hero-emblem { display: none; }
+  .hero h1 { font-size: clamp(2.3rem, 8.5vw, 3.5rem); line-height: 1.08; }
+  .eyebrow { font-size: 0.65rem; letter-spacing: 0.13em; }
+  .hero-lead { margin-top: 16px; font-size: 0.95rem; }
+  .actions { flex-direction: column; margin: 22px 0 0; max-width: none; gap: 8px; }
+  .primary, .secondary { display: flex; align-items: center; justify-content: center; min-height: 48px; }
   .scroll-cue { display: none; }
 }
 
 @media (max-width: 360px) {
-  .site-header { padding-inline: 9px; }
+  .site-header { padding-inline: 14px; }
   .brand-mark { width: 38px; }
-  nav { gap: 10px; }
-  nav a { font-size: 0.61rem; letter-spacing: 0.08em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-background { position: absolute; }
+  .hero-background { position: absolute; transform: none !important; }
   .primary, .secondary { transition: none; }
 }
 
@@ -127,6 +144,6 @@ nav a:hover, nav a:focus-visible { border-color: currentColor; }
   .site-header {
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
-      background: var(--cream);
+      background: #12303a;
     }
 }

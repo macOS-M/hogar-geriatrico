@@ -24,7 +24,7 @@
 .activity-lightbox button:hover { background: var(--brand-primary); }
 .activity-lightbox button:focus-visible { outline: 3px solid var(--brand-focus); outline-offset: 3px; }
 .activity-close { position: absolute; top: 0; right: 0; }
-.activity-full-photo { position: relative; flex: 1; min-height: 0; }
+.activity-full-photo { position: relative; flex: 1; min-height: 0; touch-action: pan-y pinch-zoom; }
 .activity-full-photo img { object-fit: contain; }
 .activity-lightbox-footer { display: flex; align-items: center; gap: 12px; padding-top: 20px; }
 .activity-lightbox-footer p { flex: 1; margin: 0; font-size: 0.95rem; }
@@ -35,12 +35,9 @@
 }
 @media (max-width: 760px) {
   .activities-heading { grid-template-columns: 1fr; gap: 20px; margin-bottom: 28px; }
+  .activities-mosaic { grid-template-columns: none; grid-template-rows: none; grid-auto-flow: column; grid-auto-columns: 82%; grid-auto-rows: auto; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 12px; }
+  .activities-mosaic .activity-photo { grid-column: auto; grid-row: auto; aspect-ratio: 4 / 3; scroll-snap-align: start; }
   .activity-lightbox { padding: 16px; }
-}
-@media (max-width: 600px) {
-  .activities-mosaic { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
-  .activities-mosaic .activity-photo { aspect-ratio: 4 / 3; }
-  .activities-mosaic .activity-tile-1, .activities-mosaic .activity-tile-2, .activities-mosaic .activity-tile-5 { aspect-ratio: 3 / 4; }
 }
 @media (prefers-reduced-motion: reduce) {
   .activity-photo img { transition: none; }

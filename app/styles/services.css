@@ -1,0 +1,27 @@
+.services-section { display: grid; grid-template-columns: 0.85fr 1.5fr; gap: 40px 64px; border-top: 1px solid var(--body-line); align-items: start; }
+.services-heading .section-lead { font-size: 1rem; max-width: 340px; }
+.services-action { margin-top: 28px; color: var(--brand-primary); font-size: 0.85rem; gap: 14px; }
+.care-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 32px; }
+.care-group { padding-top: 24px; border-top: 1px solid var(--body-line); }
+.care-group-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 12px; }
+.care-group-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: var(--body-tint); color: var(--brand-primary); }
+.care-group:nth-child(even) .care-group-icon { background: var(--body-lavender); color: var(--body-accent); }
+.care-group h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; margin: 0; }
+.care-group > p { color: var(--body-muted); font-size: 0.9rem; margin: 0; line-height: 1.75; }
+.care-group ul { list-style: none; padding: 0; margin: 18px 0 0; }
+.care-group li { position: relative; padding: 6px 0 6px 20px; font-size: 0.85rem; line-height: 1.65; }
+.care-group li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-primary); }
+.care-group:nth-child(even) li::before { background: var(--body-accent); }
+@media (max-width: 1000px) {
+  .services-section { column-gap: 32px; grid-template-columns: 0.8fr 1.4fr; }
+  .care-grid { gap: 28px 24px; }
+}
+@media (max-width: 760px) {
+  .services-section { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .services-heading .section-lead { max-width: 580px; }
+}
+@media (max-width: 580px) {
+  .care-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .care-group-heading { flex-direction: row; align-items: center; gap: 16px; }
+  .care-group-icon { flex-shrink: 0; }
+}

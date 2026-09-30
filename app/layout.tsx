@@ -1,4 +1,14 @@
 import "./globals.css";
+import "./styles/hero.css";
+import "./styles/welcome.css";
+import "./styles/services.css";
+import "./styles/sedes.css";
+import "./styles/gallery.css";
+import "./styles/activities.css";
+import "./styles/training.css";
+import "./styles/questions.css";
+import "./styles/contact.css";
+import "./styles/footer.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,23 +1,85 @@
 import Image from "next/image";
 import { ArrowUp, ArrowUpRight, HeartPulse, House, Utensils, UsersRound } from "lucide-react";
 import ParallaxHero from "./components/ParallaxHero";
+import SedeSelector from "./components/SedeSelector";
+import ActivitiesSection from "./components/ActivitiesSection";
+import TrainingSection from "./components/TrainingSection";
 import logomark from "../public/logo.png";
 
 const sedes = [
   {
-    nombre: "Nunciatura",
-    numero: "La Sabana #1",
-    descripcion: "Rohrmoser, 100 metros al sur y 200 metros al oeste de la casa de Óscar Arias.",
-  },
-  {
     nombre: "Paseo Colón",
-    numero: "La Sabana #2",
+    images: [{
+              src: "/PaseoColon/patio1.jpg",
+              alt: "Patio de la sede Paseo Colón",
+            },
+            {
+              src: "/PaseoColon/patio2.jpg",
+              alt: "Patio de la sede Paseo Colón",
+            },
+            {
+              src: "/PaseoColon/patio3.jpg",
+              alt: "Patio de la sede Paseo Colón",
+            },
+            {
+              src: "/PaseoColon/sala1.jpg",
+              alt: "Sala de la sede Paseo Colón",
+            },
+            {
+              src: "/PaseoColon/sala2.jpg",
+              alt: "Sala de la sede Paseo Colón",
+            },
+            {
+              src: "/PaseoColon/comedor1.jpg",
+              alt: "Comedor de la sede Paseo Colón"
+            },
+            {
+              src: "/PaseoColon/cuarto1.jpg",
+              alt: "Cuarto de la sede Paseo Colón"
+            },
+            {
+              src: "/PaseoColon/bano1.jpg",
+              alt: "Baño de la sede Paseo Colón"
+            }],
+    numero: "Hogar Geriátrico La Sabana",
     descripcion: "Paseo Colón, 225 metros al norte de la Toyota.",
   },
   {
     nombre: "Boulevard Rohrmoser",
-    numero: "La Sabana #3",
+    images: [
+      {
+        src: "/triangulo/patio1.jpg",
+        alt: "Patio de la sede Boulevard Rohrmoser"
+      },
+      {
+        src: "/triangulo/patio2.jpg",
+        alt: "Patio de la sede Boulevard Rohrmoser"
+      },
+      {
+        src: "/triangulo/sala1.jpg",
+        alt: "Sala de la sede Boulevard Rohrmoser"
+      },
+      {
+        src: "/triangulo/sala2.jpg",
+        alt: "Sala de la sede Boulevard Rohrmoser"
+      },
+      {
+        src: "/triangulo/cuarto1.jpg",
+        alt: "Cuarto de la sede Boulevard Rohrmoser"
+      },
+      {
+        src: "/triangulo/bano1.jpg",
+        alt: "Baño de la sede Boulevard Rohrmoser"
+      }
+    ],
+    numero: "Hogar Geriátrico La Sabana",
     descripcion: "Del AMPM del triángulo de Rohrmoser, 25 metros al norte, casa en la acera izquierda, portón crema.",
+  },
+  {
+    nombre: "Nunciatura",
+    images: [],
+    numero: "Hogar Geriátrico La Sabana",
+    descripcion: "Rohrmoser, 100 metros al sur y 200 metros al oeste de la casa de Óscar Arias.",
   },
 ];
 
@@ -74,25 +136,30 @@ export default function Home() {
 
       <div className="page-shell">
         <section className="section welcome-section" aria-labelledby="welcome-title">
-          <div className="welcome-copy">
-            <p className="section-kicker">La vida en La Sabana</p>
-            <h2 id="welcome-title">Sentirse en casa.<br />Sentirse acompañado.</h2>
-            <p className="section-lead">Elegir un hogar es una decisión de familia. Aquí, el cuidado parte de algo esencial: conocer a cada persona y respetar su historia, su autonomía y su forma de vivir.</p>
-            <a className="text-link" href="#servicios">Conozca nuestros cuidados <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
+          <div className="welcome-intro">
+            <div className="welcome-copy">
+              <p className="section-kicker">La vida en La Sabana</p>
+              <h2 className="section-title" id="welcome-title">Un hogar para<br />seguir disfrutando<br /><span>la vida.</span></h2>
+              <p className="welcome-message">Compartir una conversación, disfrutar del jardín y sentirse acompañado. Aquí, cada persona tiene su lugar.</p>
+              <a className="welcome-action" href="#sedes">Encuentre su próximo hogar <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
+            </div>
+            <div className="welcome-photo">
+              <Image src="/Actividades/actividad2.jpg" alt="Residentes y acompañantes de La Sabana reunidos en el jardín" fill sizes="(max-width: 760px) 90vw, 650px" />
+            </div>
           </div>
-          <aside className="care-note" aria-label="Cuidado residencial las 24 horas">
-            <span className="care-note-label">A su lado, cada día</span>
-            <p className="care-hours">24<span>horas</span></p>
-            <h3>De día y de noche,<br />hay alguien cerca.</h3>
-            <p>Personal capacitado para acompañar y cuidar a las personas adultas mayores.</p>
-            <span className="care-note-foot">Cuidado residencial de larga estancia</span>
-          </aside>
+          <div className="welcome-values">
+            <div className="welcome-value"><House size={22} strokeWidth={1.6} aria-hidden="true" /><div><h3>Sentirse en casa</h3><p>Espacios para vivir y compartir.</p></div></div>
+            <div className="welcome-value"><UsersRound size={22} strokeWidth={1.6} aria-hidden="true" /><div><h3>Estar acompañado</h3><p>Compañía en los momentos cotidianos.</p></div></div>
+            <div className="welcome-value"><HeartPulse size={22} strokeWidth={1.6} aria-hidden="true" /><div><h3>Cuidado día y noche</h3><p>Personal a su lado las 24 horas.</p></div></div>
+          </div>
         </section>
 
         <section id="servicios" className="section services-section" aria-labelledby="services-title">
-          <header className="section-heading">
-            <h2 id="services-title">Cuidar es estar en los detalles.</h2>
+          <header className="services-heading">
+            <p className="section-kicker">Nuestros cuidados</p>
+            <h2 className="section-title" id="services-title">Cuidar es estar<br />en los <span>detalles.</span></h2>
             <p className="section-lead">Desde la atención personal hasta la hora de compartir la mesa, cada parte del día cuenta.</p>
+            <a className="services-action text-link" href="#contacto">Conversemos sobre sus necesidades <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
           </header>
           <div className="care-grid">
             {cuidados.map((cuidado) => (
@@ -108,33 +175,23 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <p className="service-note">La frecuencia de atención profesional y la disponibilidad de los servicios se consultan por sede. El cuidado las 24 horas no implica la presencia permanente de todos los profesionales.</p>
         </section>
 
         <section id="sedes" className="section locations-section" aria-labelledby="locations-title">
-          <header className="section-heading">
-            <p className="section-kicker">Nuestras sedes</p>
-            <h2 id="locations-title">Tres hogares.<br />La misma calidez.</h2>
-            <p className="section-lead">Encuentre una sede cercana a su familia. Conversemos para conocer sus necesidades y coordinar una visita.</p>
+          <header className="locations-heading">
+            <div><p className="section-kicker">Encuentre su hogar</p><h2 className="section-title" id="locations-title">Nuestras <span>sedes.</span></h2></div>
           </header>
-          <div className="location-list">
-            {sedes.map((sede) => (
-              <article key={sede.nombre} className="location-row">
-                <div className="location-name">
-                  <span>{sede.numero}</span>
-                  <h3>{sede.nombre}</h3>
-                </div>
-                <p>{sede.descripcion}</p>
-                <a className="location-link" href="#contacto" aria-label={`Consultar por la sede ${sede.nombre}`}><span>Consultar sede</span><ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
-              </article>
-            ))}
-          </div>
+          <SedeSelector sedes={sedes} />
           <p className="location-note">Consulte las habitaciones y los servicios disponibles en cada sede.</p>
         </section>
 
+        <ActivitiesSection />
+        <TrainingSection />
+
         <section className="section questions-section" aria-labelledby="questions-title">
           <header>
-            <h2 id="questions-title">Decidir con tranquilidad.</h2>
+            <p className="section-kicker">Preguntas frecuentes</p>
+            <h2 className="section-title" id="questions-title">Decidir con<br /><span>tranquilidad.</span></h2>
             <p className="section-lead">Es natural tener preguntas. Empecemos por las que pueden ayudarle a dar el siguiente paso.</p>
           </header>
           <div className="questions-list">
@@ -149,7 +206,7 @@ export default function Home() {
 
         <section id="contacto" className="section contact-section" aria-labelledby="contact-title">
           <p className="section-kicker">Estamos para escucharle</p>
-          <h2 id="contact-title">El primer paso es conversar.</h2>
+          <h2 className="section-title" id="contact-title">El primer paso es <span>conversar.</span></h2>
           <p className="section-lead">Cuéntenos qué necesita su familia. Le orientamos sobre nuestros cuidados y cómo coordinar una visita.</p>
           <a className="contact-phone" href="tel:+50660053095">Llamar al 6005-3095 <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
           <p className="contact-hours">Horario de consultas: lunes a viernes,<br className="mobile-break" /> de 8:00 a. m. a 5:00 p. m.</p>

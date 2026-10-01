@@ -79,7 +79,7 @@ La disponibilidad de personal de cuidado las 24 horas no implica presencia perma
 - No se incluyen complementos nutricionales.
 - El retiro mensual de medicamentos se realiza cuando corresponde a la clínica a la que pertenece el hogar. Pendiente aclarar esta condición por sede.
 - Los familiares se encargan de las citas médicas. Existe una alternativa de acompañamiento con costo adicional, sujeta a coordinación.
-- Pendiente confirmar si el servicio de ambulancia tiene costo adicional y sus condiciones.
+- El servicio de ambulancia privada para emergencias está incluido.
 
 ## Habitaciones y tarifas
 

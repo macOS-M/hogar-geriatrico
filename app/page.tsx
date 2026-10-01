@@ -88,7 +88,7 @@ const cuidados = [
     titulo: "Salud y acompañamiento",
     icon: HeartPulse,
     descripcion: "Apoyo profesional para las necesidades de cada persona.",
-    servicios: ["Control y seguimiento médico", "Medicina general y enfermería", "Terapia física y ocupacional"],
+    servicios: ["Control y seguimiento médico", "Medicina general y enfermería", "Terapia física y ocupacional", "Ambulancia privada para emergencias incluida"],
   },
   {
     titulo: "Alimentación y bienestar",
@@ -113,11 +113,11 @@ const cuidados = [
 const preguntas = [
   {
     pregunta: "¿Cómo se define la mensualidad?",
-    respuesta: "La mensualidad varía según el nivel de dependencia de la persona adulta mayor y el tipo de habitación. Llámenos para consultar una cotización y conocer la disponibilidad en cada sede.",
+    respuesta: "La mensualidad varía según el nivel de dependencia de la persona adulta mayor y el tipo de habitación. Contáctenos por WhatsApp para consultar una cotización y conocer la disponibilidad en cada sede.",
   },
   {
     pregunta: "¿Qué debo saber sobre los costos adicionales?",
-    respuesta: "No se incluyen los medicamentos que no suministre la CCSS ni los complementos nutricionales. Los familiares se encargan de las citas médicas; el acompañamiento tiene un costo adicional y requiere coordinación. Consulte las condiciones y el posible costo del servicio de ambulancia privada para emergencias.",
+    respuesta: "No se incluyen los medicamentos que no suministre la CCSS ni los complementos nutricionales. Los familiares se encargan de las citas médicas; el acompañamiento tiene un costo adicional y requiere coordinación.",
   },
   {
     pregunta: "¿Qué documentos se necesitan para el ingreso?",
@@ -125,7 +125,7 @@ const preguntas = [
   },
   {
     pregunta: "¿Podemos conocer el hogar antes de decidir?",
-    respuesta: "Comuníquese con nosotros para coordinar una visita y consultar la sede que le interesa. También podrá preguntar por la disponibilidad de habitaciones, los horarios de visita de familiares y los servicios de cada sede.",
+    respuesta: "Contáctenos por WhatsApp para coordinar una visita y consultar la sede que le interesa. También podrá preguntar por la disponibilidad de habitaciones, los horarios de visita de familiares y los servicios de cada sede.",
   },
 ];
 
@@ -159,7 +159,7 @@ export default function Home() {
             <p className="section-kicker">Nuestros cuidados</p>
             <h2 className="section-title" id="services-title">Cuidar es estar<br />en los <span>detalles.</span></h2>
             <p className="section-lead">Desde la atención personal hasta la hora de compartir la mesa, cada parte del día cuenta.</p>
-            <a className="services-action text-link" href="#contacto">Conversemos sobre sus necesidades <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
+            <a className="services-action text-link" href="#contacto">Contáctenos para hablar sobre sus necesidades <ArrowUpRight className="link-arrow" aria-hidden="true" strokeWidth={1.8} /></a>
           </header>
           <div className="care-grid">
             {cuidados.map((cuidado) => (
@@ -207,13 +207,13 @@ export default function Home() {
         <section id="contacto" className="section contact-section" aria-labelledby="contact-title">
           <div className="contact-copy">
             <p className="section-kicker">Estamos para escucharle</p>
-            <h2 className="section-title" id="contact-title">El primer paso es <span>conversar.</span></h2>
-            <p className="section-lead">Cuéntenos qué necesita su familia. Le orientamos sobre nuestros cuidados y cómo coordinar una visita.</p>
+            <h2 className="section-title" id="contact-title">El primer paso es <span>contactarnos.</span></h2>
+            <p className="section-lead">Cuéntenos por WhatsApp qué necesita su familia. Le orientamos sobre nuestros cuidados y cómo coordinar una visita.</p>
           </div>
           <div className="contact-card">
-            <p className="contact-card-label">Conversemos sobre sus necesidades</p>
+            <p className="contact-card-label">Contáctenos por WhatsApp</p>
             <a className="contact-number" href="https://wa.me/50660053095" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp al +506 6005-3095">+506 6005-3095</a>
-            <a className="contact-phone" href="tel:+50660053095"><Phone size={18} aria-hidden="true" /><span>Llamar ahora</span><ArrowUpRight className="link-arrow" aria-hidden="true" /></a>
+            <a className="contact-phone" href="https://wa.me/50660053095" target="_blank" rel="noopener noreferrer"><MessageCircle size={18} aria-hidden="true" /><span>Enviar un mensaje</span><ArrowUpRight className="link-arrow" aria-hidden="true" /></a>
             <div className="contact-hours"><Clock3 size={18} strokeWidth={1.7} aria-hidden="true" /><div><span>Horario de consultas</span><p>Lunes a viernes · 8:00 a. m. a 5:00 p. m.</p></div></div>
             <a className="text-link contact-sedes" href="#sedes">Conocer nuestras sedes <ArrowUpRight className="link-arrow" aria-hidden="true" /></a>
           </div>

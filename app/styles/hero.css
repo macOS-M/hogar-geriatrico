@@ -98,7 +98,7 @@ nav a:hover, nav a:focus-visible { border-color: currentColor; }
 
 .primary:hover, .secondary:hover { transform: translateY(-2px); }
 
-.secondary:hover { background: rgba(255, 255, 255, 0.12); }
+.hero .secondary:hover { background: #16833f; color: #fff; border-color: #16833f; }
 
 .scroll-cue { align-items: center; bottom: clamp(85px, 11vw, 155px); display: flex; flex-direction: column; font-size: 0.68rem; gap: 5px; left: 50%; letter-spacing: 0.16em; position: absolute; text-transform: uppercase; transform: translateX(-50%); z-index: 4; }
 

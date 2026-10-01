@@ -95,3 +95,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .section-title span { color: var(--section-accent, var(--body-accent)); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-reveal-pending { opacity: 0; }
+}

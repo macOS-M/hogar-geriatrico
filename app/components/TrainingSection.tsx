@@ -6,9 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import usePhotoSwipe from "./usePhotoSwipe";
 
 const trainingPhotos = [
-  { src: "/capacitaciones/capacitacion1.jpg", alt: "Demostración de primeros auxilios durante una capacitación del equipo" },
-  { src: "/capacitaciones/capacitacion2.jpg", alt: "Práctica de compresiones torácicas con un maniquí de entrenamiento" },
-  { src: "/capacitaciones/capacitacion3.jpg", alt: "Personal practicando técnicas de primeros auxilios con un maniquí" },
+  { src: "/capacitaciones/capacitacion4.jpg", alt: "Demostración de primeros auxilios durante una capacitación del equipo", caption: "Aprendemos en equipo" },
+  { src: "/capacitaciones/capacitacion5.jpg", alt: "Práctica de compresiones torácicas con un maniquí de entrenamiento", caption: "Reforzamos con la práctica" },
 ];
 
 export default function TrainingSection() {
@@ -44,11 +43,12 @@ export default function TrainingSection() {
       </div>
       <div className="training-gallery">
         {trainingPhotos.map((photo, index) => (
-          <figure key={photo.src} className={"training-moment training-moment-" + index}>
+          <figure key={photo.src} className="training-moment">
             <button type="button" className="training-photo" aria-label={"Ampliar: " + photo.alt} onClick={() => setSelected(index)}>
-              <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 600px) 90vw, 550px" />
+              <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 760px) 90vw, 550px" />
               <span className="training-expand" aria-hidden="true"><Expand size={18} /></span>
             </button>
+            <figcaption>{photo.caption}</figcaption>
           </figure>
         ))}
       </div>

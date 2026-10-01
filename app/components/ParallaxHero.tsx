@@ -23,8 +23,8 @@ export default function ParallaxHero() {
             seguros y llenos de calidez.
           </p>
           <div className="actions">
-            <a href="#sedes" className="primary">Conoce nuestras sedes</a>
-            <a href="tel:+50660053095" className="secondary">Llamar al 6005-3095</a>
+            <a href="#sedes" className="primary">Conozca nuestras sedes</a>
+            <a href="https://wa.me/50660053095" className="secondary" target="_blank" rel="noopener noreferrer">Contactenos por WhatsApp</a>
           </div>
         </div>
       </section>

@@ -13,25 +13,29 @@
 
 .sede-selector { margin-bottom: 28px; }
 
-.sede-tabs { display: flex; overflow-x: auto; overflow-y: hidden; padding: 6px 0 0; scrollbar-width: thin; }
+.sede-selection-hint { margin: 0 0 14px; color: var(--body-ink); font-size: 0.95rem; }
 
-.sede-tab { display: flex; align-items: center; justify-content: flex-start; gap: 16px; flex: 1 0 0; border: 1px solid var(--body-line); border-bottom: 0; border-radius: 18px 18px 0 0; background: var(--tab-surface); color: var(--body-muted); font: inherit; font-size: 1.05rem; padding: 24px; min-height: 98px; cursor: pointer; position: relative; text-align: left; }
+.sede-tabs { display: flex; gap: 12px; overflow-x: auto; overflow-y: hidden; padding: 6px 0; margin-bottom: 12px; scrollbar-width: thin; }
 
-.sede-tab-copy { display: flex; flex-direction: column; gap: 4px; white-space: nowrap; }
+.sede-tab { display: flex; align-items: center; justify-content: flex-start; gap: 16px; flex: 1 0 0; border: 1px solid var(--brand-primary); border-radius: 14px; background: var(--tab-surface); color: var(--body-ink); font: inherit; font-size: 1.05rem; padding: 24px; min-height: 98px; cursor: pointer; position: relative; text-align: left; }
+
+.sede-tab-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 
 .sede-tab-number { font-size: 0.7rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.sede-tab-name { display: flex; align-items: center; gap: 8px; }
+
+.sede-tab-arrow { color: var(--brand-primary); }
 
 .sede-tab svg { flex-shrink: 0; }
 
 .sede-tab:hover { background: var(--tab-hover); color: var(--body-ink); }
 
-.sede-tab[aria-selected="true"] { background: var(--body-lavender); color: var(--brand-primary); font-weight: 600; z-index: 1; box-shadow: inset 0 3px 0 var(--brand-primary); }
-
-.sede-tab[aria-selected="true"]::after { content: ""; position: absolute; height: 2px; background: var(--body-lavender); bottom: -1px; left: 0; right: 0; }
+.sede-tab[aria-selected="true"] { background: var(--brand-primary); color: var(--cream); font-weight: 600; z-index: 1; }
 
 .sede-tab:focus-visible { outline: 3px solid var(--body-accent); outline-offset: -5px; }
 
-.sede-panel { background: var(--body-lavender); border: 1px solid var(--body-line); border-radius: 0 0 18px 18px; padding: 36px 48px; min-height: 260px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+.sede-panel { background: var(--body-lavender); border: 1px solid var(--body-line); border-radius: 18px; padding: 36px 48px; min-height: 260px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
 
 .sede-panel[hidden] { display: none; }
 
@@ -55,6 +59,14 @@
 
 .location-note { color: var(--body-muted); font-size: 0.85rem; margin: 0; }
 
+@media (min-width: 761px) {
+  .sede-tabs { gap: 0; padding: 6px 0 0; margin-bottom: 0; }
+  .sede-tab { border-bottom: 0; border-radius: 18px 18px 0 0; }
+  .sede-tab[aria-selected="true"] { background: var(--body-lavender); color: var(--brand-primary); box-shadow: inset 0 3px 0 var(--brand-primary); }
+  .sede-tab[aria-selected="true"]::after { content: ""; position: absolute; height: 2px; background: var(--body-lavender); bottom: -1px; left: 0; right: 0; }
+  .sede-panel { border-radius: 0 0 18px 18px; }
+}
+
 @media (max-width: 900px) {
   .page-shell .locations-section { padding: 48px 0; }
   .sede-tab { padding-inline: 16px; }
@@ -65,11 +77,9 @@
   .page-shell .locations-section { padding: 36px 0; }
   .locations-heading { flex-direction: column; gap: 10px; margin-bottom: 22px; }
   .sede-tabs { flex-direction: column; gap: 8px; overflow: visible; padding: 0; margin-bottom: 16px; }
-  .sede-tab { flex: none; width: 100%; font-size: 1rem; padding: 14px 16px; gap: 12px; min-height: 56px; border: 1px solid var(--body-line); border-radius: 12px; }
+  .sede-tab { flex: none; width: 100%; font-size: 1rem; padding: 14px 16px; gap: 12px; min-height: 56px; border-radius: 12px; }
   .sede-tab-copy { min-width: 0; white-space: normal; }
   .sede-tab-number { display: none; }
-  .sede-tab[aria-selected="true"] { box-shadow: inset 4px 0 0 var(--brand-primary); }
-  .sede-tab[aria-selected="true"]::after { display: none; }
   .sede-panel { grid-template-columns: minmax(0, 1fr); padding: 20px 14px; gap: 18px; border-radius: 16px; }
   .sede-details { flex-direction: column; align-items: flex-start; gap: 20px; padding-top: 20px; }
   .location-link { width: 100%; justify-content: space-between; }

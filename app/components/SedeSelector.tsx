@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, type KeyboardEvent } from "react";
-import { ArrowUpRight, House, MapPin } from "lucide-react";
+import { ArrowUpRight, ChevronRight, House, MapPin } from "lucide-react";
 import SedeGallery, { type SedePhoto } from "./SedeGallery";
 
 type Sede = { nombre: string; numero: string; descripcion: string; images: SedePhoto[] };
@@ -24,6 +24,7 @@ export default function SedeSelector({ sedes }: { sedes: Sede[] }) {
 
   return (
     <div className="sede-selector">
+      <p className="sede-selection-hint">Seleccione una sede para ver sus fotos y ubicación.</p>
       <div className="sede-tabs" role="tablist" aria-label="Seleccione una sede">
         {sedes.map((sede, index) => (
           <button
@@ -40,7 +41,13 @@ export default function SedeSelector({ sedes }: { sedes: Sede[] }) {
             onKeyDown={(event) => navigate(event, index)}
           >
             <House size={22} strokeWidth={1.7} aria-hidden="true" />
-            <span className="sede-tab-copy"><span className="sede-tab-number">{sede.numero}</span><span>{sede.nombre}</span></span>
+            <span className="sede-tab-copy">
+              <span className="sede-tab-number">{sede.numero}</span>
+              <span className="sede-tab-name">
+                {sede.nombre}
+                {selected !== index && <ChevronRight className="sede-tab-arrow" size={16} aria-hidden="true" />}
+              </span>
+            </span>
           </button>
         ))}
       </div>

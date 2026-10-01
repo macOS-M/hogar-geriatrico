@@ -11,6 +11,10 @@
 .welcome-value:nth-child(2) > svg { color: var(--body-accent); }
 .welcome-value h3 { font-size: 1rem; font-weight: 600; margin: 0 0 6px; }
 .welcome-value p { color: var(--body-muted); font-size: 0.85rem; margin: 0; }
+@media (min-width: 761px) {
+  .welcome-value:nth-child(2) { justify-self: center; }
+  .welcome-value:last-child { justify-self: end; }
+}
 @media (max-width: 900px) {
   .welcome-intro { gap: 32px; }
   .welcome-values { gap: 20px; }
